@@ -23,7 +23,7 @@ CLDB can be installed from the command line as follows:
 
 ## Use
 
-Using CLDB is very simple. Simply pass the Cello program's source code file as a parameter to the cldb command, and the syntax checking and debugging can begin. For example:
+Using CLDB is very simple. Simply pass the Cello program's source code file as a parameter to the cldb command, and the syntax checking and debugging can begin.
 
 ## Feedback
 
