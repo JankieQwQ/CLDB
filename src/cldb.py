@@ -1,5 +1,6 @@
 import sys
-from syntax import syntax
+from syntax import Syntax
+
 welc = '''
 CLDB - CELLO DEBUGGER
 
@@ -10,7 +11,7 @@ Options:
     -l Monitor vital signs (heartbeat, SpO2)
 '''
 
-def main(argc:int = len(sys.argv),argv:list = sys.argv) -> int:
+def main(argc=len(sys.argv), argv=sys.argv) -> int:
     if argc == 1:
         print(welc)
         return 0
@@ -18,16 +19,18 @@ def main(argc:int = len(sys.argv),argv:list = sys.argv) -> int:
         print('Invalid parameter.')
         return -1
     
-    modelist = ['-s','-l']
-    filename = argv[1]
-    mode     = argv[2]
+    modelist = ['-s', '-l']
+    filename, mode = argv[1:3]
     syntaxer = Syntax(filename)
-    if not mode in modelist:
+    
+    if mode not in modelist:
         print('Invalid parameter.')
         return -1
+    
     if mode == '-s':
         syntaxer.check()
         print('Success!')
+    
     return 0
 
 if __name__ == '__main__':
